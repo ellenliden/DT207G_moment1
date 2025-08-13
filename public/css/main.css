@@ -96,9 +96,17 @@ nav a.current {
   height: 100%;
   width: 100%;
 }
-
-nav a.current:hover {
-  display: none;
+/* visar inte understrykning vid hover */
+nav a.current::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
 /* Responsiv design */

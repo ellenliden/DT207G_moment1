@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 // Statiska filer
 app.use(express.static("public"));
 
-// Route för startsidan
+// Route för startsidan (här visas kurser)
 app.get("/", function (req, res) {
   res.render("index");
 });
@@ -17,11 +17,6 @@ app.get("/", function (req, res) {
 // Route för lägga till kurser
 app.get("/add-course", function (req, res) {
   res.render("add-course");
-});
-
-//Route för visa kurser
-app.get("/courses", function (req, res) {
-  res.render("courses");
 });
 
 //Route för om oss
