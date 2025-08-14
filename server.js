@@ -11,17 +11,17 @@ app.use(express.static("public"));
 
 // Route för startsidan (här visas kurser)
 app.get("/", function (req, res) {
-  res.render("index");
+  res.render("index", { fullname: "Ellen Lidén" });
 });
 
 // Route för lägga till kurser
 app.get("/add-course", function (req, res) {
-  res.render("add-course");
+  res.render("add-course", { fullname: "Ellen Lidén" });
 });
 
 //Route för om oss
 app.get("/about", function (req, res) {
-  res.render("about");
+  res.render("about", { fullname: "Ellen Lidén" });
 });
 
 // Starta upp server
