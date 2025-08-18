@@ -1,10 +1,12 @@
 //Starta upp applikationen
 const express = require("express");
+const bodyParser = require("body-parser"); //Möjliggör att hantera formulärdata
 const app = express();
 const port = 3000;
 
 // EJS
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Statiska filer
 app.use(express.static("public"));
@@ -16,6 +18,11 @@ app.get("/", function (req, res) {
 
 // Route för lägga till kurser
 app.get("/add-course", function (req, res) {
+  res.render("add-course", { fullname: "Ellen Lidén" });
+});
+
+//Route för att lägga till kurser
+app.post("/add-course", function (req, res) {
   res.render("add-course", { fullname: "Ellen Lidén" });
 });
 
