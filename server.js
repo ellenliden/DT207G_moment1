@@ -11,23 +11,32 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Statiska filer
 app.use(express.static("public"));
 
+//Middleware för att visa "current page" (vart användaren är) automatiskt
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
+
+// Array för att lagra kurser
+let courses = [];
+
 // Route för startsidan (här visas kurser)
-app.get("/", function (req, res) {
+app.get("/", (req, res) => {
   res.render("index", { fullname: "Ellen Lidén" });
 });
 
-// Route för lägga till kurser
-app.get("/add-course", function (req, res) {
+// Route för lägga till kurser (footer)
+app.get("/add-course", (req, res) => {
   res.render("add-course", { fullname: "Ellen Lidén" });
 });
 
 //Route för att lägga till kurser
-app.post("/add-course", function (req, res) {
+app.post("/add-course", (req, res) => {
   res.render("add-course", { fullname: "Ellen Lidén" });
 });
 
 //Route för om oss
-app.get("/about", function (req, res) {
+app.get("/about", (req, res) => {
   res.render("about", { fullname: "Ellen Lidén" });
 });
 

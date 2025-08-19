@@ -7,36 +7,12 @@
     <title>Moment 1</title>
   </head>
   <body>
-    <header class="main-header">
-    <div class="container">
-      <h1>MIUN</h1>
-      <nav>
-        <ul>
-          <li><a href="/">Kurser</a></li>
-          <li><a href="/add-course" class="current">Lägg till kurser</a></li>
-          <li><a href="/about">Om oss</a></li>
-        </ul>
-      </nav>
-    </header>
-    </div>
-    <main>
-        <div class="form-container  ">
-            <h2>Lägg till kurser</h2>
-            <form action="/add-course" method="post">
-                <label for="course-name">Kursnamn</label>
-                <input type="text" name="course-name" placeholder="Kursnamn">
-                <label for="course-code">Kurskod</label>
-                <input type="text" name="course-code" placeholder="Kurskod">
-                <label for="progression">Progression</label>
-                <input type="text" name="progression" placeholder="Progression">
-                <input type="submit" value="Lägg till" class="form-button">
-            </form>
-        </div>
-    </main>
+    <%- include("navbar") %>
+    <main></main>
     <footer>
-        <div class="footer-container">
-          <p>Copyright &copy; 2025 <%= fullname %></p>
-        </div>
-      </footer>
+      <div class="footer-container">
+        <p>Copyright &copy; 2025 <%= fullname %></p>
+      </div>
+    </footer>
   </body>
 </html>
