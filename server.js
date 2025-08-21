@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser"); //Möjliggör att hantera formulärdata
 const app = express();
-const port = 3000;
+const port = process.env.port || 3000; //Port för att kunna köra på olika portar
 
 // EJS
 app.set("view engine", "ejs");
@@ -22,22 +22,22 @@ let courses = [];
 
 // Route för startsidan (här visas kurser)
 app.get("/", (req, res) => {
-  res.render("index", { fullname: "Ellen Lidén" });
+  res.render("index");
 });
 
 // Route för lägga till kurser (footer)
 app.get("/add-course", (req, res) => {
-  res.render("add-course", { fullname: "Ellen Lidén" });
+  res.render("add-course");
 });
 
 //Route för att lägga till kurser
 app.post("/add-course", (req, res) => {
-  res.render("add-course", { fullname: "Ellen Lidén" });
+  res.render("add-course");
 });
 
 //Route för om oss
 app.get("/about", (req, res) => {
-  res.render("about", { fullname: "Ellen Lidén" });
+  res.render("about");
 });
 
 // Starta upp server
