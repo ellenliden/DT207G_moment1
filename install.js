@@ -19,18 +19,26 @@ client.connect((err) => {
     console.error("Fel vid anslutning till databasen" + err);
   } else {
     console.log("Ansluten till databasen");
+
+    //skapa tabell
+    client.query(
+      `
+        CREATE TABLE IF NOT EXISTS courses (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(64) NOT NULL,
+            code VARCHAR(64) NOT NULL,
+            progression VARCHAR(64) NOT NULL,
+            syllabus VARCHAR(255) NOT NULL
+        );
+      `,
+      (err, result) => {
+        if (err) {
+          console.error("Fel vid skapande av tabell: " + err);
+        } else {
+          console.log("Tabell 'courses' skapad framgångsrikt");
+        }
+        client.end();
+      }
+    );
   }
 });
-
-//skapa tabell
-client.query(
-  `
-    CREATE TABLE IF NOT EXISTS courses (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(64) NOT NULL,
-        code VARCHAR(64) NOT NULL,
-        progression VARCHAR(64) NOT NULL,
-        syllabus VARCHAR(255) NOT NULL
-    );
-`
-);

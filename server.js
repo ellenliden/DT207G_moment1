@@ -58,8 +58,27 @@ app.get("/add-course", (req, res) => {
 });
 
 //Route för att lägga till kurser
-app.post("/add-course", (req, res) => {
-  res.render("add-course");
+app.post("/add-course", async (req, res) => {
+  try {
+    const { name, code, progression, syllabus } = req.body;
+
+    // Kontrollera att alla fält är ifyllda
+    if (!name || !code || !progression || !syllabus) {
+      return res.status(400).send("Alla fält måste fyllas i");
+    }
+
+    //sql-fråga för att lägga till kurs
+    const result = await client.query(
+      "INSERT INTO courses (name, code, progression, syllabus) VALUES ($1, $2, $3, $4)",
+      [name, code, progression, syllabus]
+    );
+
+    console.log("Kurs tillagd:", result.rows[0]);
+    res.redirect("/");
+  } catch (error) {
+    console.error("Fel vid spara av kurs:", error);
+    res.status(500).send("Fel vid spara av kurs");
+  }
 });
 
 //Route för om oss

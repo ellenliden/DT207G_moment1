@@ -8,10 +8,50 @@
   </head>
   <body>
     <%- include("navbar") %>
-    <main></main>
-    <footer>
-        <%- include("footer") %>
-      </footer>
-    </footer>
+    <main>
+      <div class="form-container">
+        <h2>Lägg till kurs</h2>
+        <form method="post" action="/add-course">
+          <label for="name">Kursnamn</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Skriv kursnamn här"
+            required
+          />
+
+          <label for="code">Kurskod</label>
+          <input
+            type="text"
+            id="code"
+            name="code"
+            placeholder="Skriv kurskod här"
+            required
+          />
+
+          <label for="progression">Progression</label>
+          <input
+            type="text"
+            id="progression"
+            name="progression"
+            placeholder="A, B, C"
+            required
+          />
+
+          <label for="syllabus">Kursplan</label>
+          <input
+            type="url"
+            id="syllabus"
+            name="syllabus"
+            placeholder="https://example.com/syllabus"
+            required
+          />
+
+          <input type="submit" value="Lägg till kurs" class="form-button" />
+        </form>
+      </div>
+    </main>
+    <footer><%- include("footer") %></footer>
   </body>
 </html>
