@@ -26,7 +26,7 @@ client.connect((err) => {
 const express = require("express");
 const bodyParser = require("body-parser"); //Möjliggör att hantera formulärdata
 const app = express();
-const port = process.env.port || 3000; //Port för att kunna köra på olika portar
+const port = process.env.PORT || 3000; //Port för att kunna köra på olika portar
 
 // EJS
 app.set("view engine", "ejs");
