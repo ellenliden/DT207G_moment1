@@ -9,20 +9,50 @@
   <body>
     <%- include("navbar") %>
     <main>
-   <h2>Kurser</h2>
-   <ul class="course-list"><%courses.forEach(course => { %>
-    <li>Namn:<%= course.name %> </li>
-            <li>Kurskod: <%= course.code %></li>
-            <li>Förlopp: <%= course.progression %></li>
-            <li>Syllabus: <%= course.syllabus %></li>
-            <br>
-        
-   <% }); %></ul>
-    </div>
-   </div>
+      <div class="container">
+        <h2>Kurser</h2>
+
+        <% if (courses && courses.length > 0) { %>
+        <ul class="course-list">
+          <% courses.forEach(course => { %>
+          <li>
+            <div class="course-content">
+              <strong>Namn:</strong> <%= course.name %><br />
+              <strong>Kurskod:</strong> <%= course.code %><br />
+              <strong>Förlopp:</strong> <%= course.progression %><br />
+              <strong>Syllabus:</strong>
+              <a href="<%= course.syllabus %>" target="_blank"
+                ><%= course.syllabus %></a
+              >
+            </div>
+            <div class="course-actions">
+              <form
+                method="POST"
+                action="/delete-course/<%= course.id %>"
+                style="display: inline"
+              >
+                <button
+                  type="submit"
+                  class="delete-btn"
+                  onclick="return confirm('Är du säker på att du vill ta bort denna kurs?')"
+                >
+                  Ta bort
+                </button>
+              </form>
+            </div>
+          </li>
+          <% }); %>
+        </ul>
+        <% } else { %>
+        <div class="no-courses">
+          <p>
+            Inga kurser tillagda ännu.
+            <a href="/add-course">Lägg till din första kurs</a>
+          </p>
+        </div>
+        <% } %>
+      </div>
     </main>
-    <footer>
-        <%- include("footer") %>
-      </footer>
+    <footer><%- include("footer") %></footer>
   </body>
 </html>

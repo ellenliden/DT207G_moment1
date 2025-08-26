@@ -49,14 +49,22 @@ let courses = [];
 
 // Route för startsidan (här visas kurser)
 app.get("/", async (req, res) => {
-  //Läs ut alla kurser från databasen
-  client.query("SELECT * FROM courses", (err, result) => {
-    if (err) {
-      console.error("Fel vid hämtning av kurser");
-    } else {
-      res.render("index", { courses: result.rows });
-    }
-  });
+  try {
+    // Hämta alla kurser från databasen
+    const result = await client.query("SELECT * FROM courses ORDER BY id DESC");
+    const courses = result.rows;
+
+    res.render("index", {
+      fullname: "Ellen Lidén",
+      courses: courses,
+    });
+  } catch (error) {
+    console.error("Fel vid hämtning av kurser:", error);
+    res.render("index", {
+      fullname: "Ellen Lidén",
+      courses: [],
+    });
+  }
 });
 
 // Route för lägga till kurser (footer)
@@ -85,6 +93,29 @@ app.post("/add-course", async (req, res) => {
   } catch (error) {
     console.error("Fel vid spara av kurs:", error);
     res.status(500).send("Fel vid spara av kurs");
+  }
+});
+
+//Route för att ta bort kurser
+app.post("/delete-course/:id", async (req, res) => {
+  try {
+    const courseId = req.params.id;
+
+    //sql-fråga för att ta bort kurs
+    const result = await client.query(
+      "DELETE FROM courses WHERE id = $1 RETURNING *",
+      [courseId]
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).send("Kursen hittades inte");
+    }
+
+    console.log("Kurs borttagen:", result.rows[0]);
+    res.redirect("/");
+  } catch (error) {
+    console.error("Fel vid borttagning av kurs:", error);
+    res.status(500).send("Fel vid borttagning av kurs");
   }
 });
 
