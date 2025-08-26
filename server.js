@@ -1,3 +1,27 @@
+const { Client } = require("pg");
+require("dotenv").config();
+
+//anslut till databasen
+const client = new Client({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
+
+//anslut till databasen
+client.connect((err) => {
+  if (err) {
+    console.error("Fel vid anslutning till databasen" + err);
+  } else {
+    console.log("Ansluten till databasen");
+  }
+});
+
 //Starta upp applikationen
 const express = require("express");
 const bodyParser = require("body-parser"); //Möjliggör att hantera formulärdata
@@ -11,6 +35,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Statiska filer
 app.use(express.static("public"));
 
+//Middleware för att hantera formulärdata (aktivera formulärdata)
+app.use(express.urlencoded({ extended: true }));
+
 //Middleware för att visa "current page" (vart användaren är) automatiskt
 app.use((req, res, next) => {
   res.locals.currentPath = req.path;
@@ -21,7 +48,7 @@ app.use((req, res, next) => {
 let courses = [];
 
 // Route för startsidan (här visas kurser)
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   res.render("index");
 });
 

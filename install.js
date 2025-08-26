@@ -23,13 +23,14 @@ client.connect((err) => {
 });
 
 //skapa tabell
-client.query (`
-    CREATE TABLE courses (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(64) NOT NULL,
-    code VARCHAR(64) NOT NULL,
-    progression VARCHAR(64) NOT NULL,
-    syllabus VARCHAR(255) NOT NULL
-    )
-
-    `);
+client.query(
+  `
+    CREATE TABLE IF NOT EXISTS courses (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(64) NOT NULL,
+        code VARCHAR(64) NOT NULL,
+        progression VARCHAR(64) NOT NULL,
+        syllabus VARCHAR(255) NOT NULL
+    );
+`
+);
