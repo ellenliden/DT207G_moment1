@@ -10,6 +10,14 @@
     <%- include("navbar") %>
     <main>
    <h2>Kurser</h2>
+   <ul class="course-list"><%courses.forEach(course => { %>
+    <li>Namn:<%= course.name %> </li>
+            <li>Kurskod: <%= course.code %></li>
+            <li>Förlopp: <%= course.progression %></li>
+            <li>Syllabus: <%= course.syllabus %></li>
+            <br>
+        
+   <% }); %></ul>
     </div>
    </div>
     </main>

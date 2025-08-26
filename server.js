@@ -49,7 +49,14 @@ let courses = [];
 
 // Route för startsidan (här visas kurser)
 app.get("/", async (req, res) => {
-  res.render("index");
+  //Läs ut alla kurser från databasen
+  client.query("SELECT * FROM courses", (err, result) => {
+    if (err) {
+      console.error("Fel vid hämtning av kurser");
+    } else {
+      res.render("index", { courses: result.rows });
+    }
+  });
 });
 
 // Route för lägga till kurser (footer)
