@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
     <%- include("navbar") %>
     <main>
       <div class="container">
-        <h2>Kurser</h2>
+        <h2>Dina tillagda kurser</h2>
 
         <% if (courses && courses.length > 0) { %>
         <ul class="course-list">
@@ -19,7 +19,7 @@
             <div class="course-content">
               <strong>Namn:</strong> <%= course.name %><br />
               <strong>Kurskod:</strong> <%= course.code %><br />
-              <strong>Förlopp:</strong> <%= course.progression %><br />
+              <strong>Progression:</strong> <%= course.progression %><br />
               <strong>Syllabus:</strong>
               <a href="<%= course.syllabus %>" target="_blank"
                 ><%= course.syllabus %></a
