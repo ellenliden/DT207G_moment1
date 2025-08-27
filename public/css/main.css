@@ -103,11 +103,14 @@ p {
 .nav-list a.current {
   background-color: rgba(8, 6, 6, 0.2);
   border-bottom: 2px solid #ffffff;
-  height: 100%;
-  width: 100%;
 }
 
 .nav-list a.current:hover {
+  background-color: rgba(8, 6, 6, 0.3);
+  transform: none;
+}
+
+.nav-list a.current::before {
   display: none;
 }
 
