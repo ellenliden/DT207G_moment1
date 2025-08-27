@@ -1,46 +1,35 @@
-<!DOCTYPE html>
-<html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <title>Moment 1</title>
-  </head>
-  <body>
-    <header class="main-header">
-      <div class="container">
-        <h1>MIUN</h1>
-        <nav class="nav-menu">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <ul class="nav-list">
-            <li>
-              <a href="/" class="<%= currentPath === '/' ? 'current' : '' %>"
-                >Kurser</a
-              >
-            </li>
-            <li>
-              <a
-                href="/add-course"
-                class="<%= currentPath === '/add-course' ? 'current' : '' %>"
-                >Lägg till kurser</a
-              >
-            </li>
-            <li>
-              <a
-                href="/about"
-                class="<%= currentPath === '/about' ? 'current' : '' %>"
-                >Om oss</a
-              >
-            </li>
-          </ul>
-        </nav>
+<header class="main-header">
+  <div class="container">
+    <h1>MIUN</h1>
+    <nav class="nav-menu">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-    </header>
+      <ul class="nav-list">
+        <li>
+          <a href="/" class="<%= currentPath === '/' ? 'current' : '' %>"
+            >Kurser</a
+          >
+        </li>
+        <li>
+          <a
+            href="/add-course"
+            class="<%= currentPath === '/add-course' ? 'current' : '' %>"
+            >Lägg till kurser</a
+          >
+        </li>
+        <li>
+          <a
+            href="/about"
+            class="<%= currentPath === '/about' ? 'current' : '' %>"
+            >Om oss</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <script src="/js/navbar.js"></script>
-  </body>
-</html>
+<script src="/js/navbar.js"></script>
