@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +7,164 @@
     <title>Moment 1</title>
   </head>
   <body>
-    <%- include("navbar") %>
-    <main></main>
+    <%- include('navbar') %>
+
+    <main>
+      <div class="container-about">
+        <h1>Om applikationen</h1>
+
+        <section class="about-section">
+          <h2>Syfte</h2>
+          <p>
+            Den här webbapplikationen är utvecklad för att hjälpa studenter att
+            organisera och hantera kursinformation på ett enkelt och effektivt
+            sätt. Den tillåter användare att lagra och visa kurser de har läst.
+            Detta genom att fylla i ett formulär med kurskod, kursnamn,
+            progression och länk till kursplan.
+          </p>
+        </section>
+
+        <section class="about-section">
+          <h2>Funktioner</h2>
+          <ul class="feature-list">
+            <li>
+              <strong>Visa kurser:</strong> Se alla lagrade kurser på startsidan
+            </li>
+            <li>
+              <strong>Lägg till kurser:</strong> Enkelt formulär för att lägga
+              till nya kurser
+            </li>
+            <li>
+              <strong>Ta bort kurser:</strong> Radera kurser med bekräftelseruta
+            </li>
+            <li>
+              <strong>Responsiv design:</strong> Fungerar på både desktop och
+              mobil
+            </li>
+            <li>
+              <strong>Säker datalagring:</strong> All data lagras i en
+              relationsdatabas
+            </li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>Teknisk Information</h2>
+
+          <h3>Backend-teknologier</h3>
+          <ul class="tech-list">
+            <li><strong>Node.js:</strong> JavaScript runtime-miljö</li>
+            <li><strong>Express.js:</strong> Web framework för Node.js</li>
+            <li>
+              <strong>EJS:</strong> Template engine för dynamisk HTML-generering
+            </li>
+            <li>
+              <strong>PostgreSQL:</strong> Relationsdatabas för datalagring
+            </li>
+            <li><strong>pg:</strong> PostgreSQL-klient för Node.js</li>
+            <li>
+              <strong>pgAdmin4:</strong> Grafiskt gränssnitt för
+              PostgreSQL-hantering
+            </li>
+          </ul>
+
+          <h3>Frontend-teknologier</h3>
+          <ul class="tech-list">
+            <li><strong>HTML5:</strong> Semantisk markup</li>
+            <li><strong>CSS3:</strong> Modern styling</li>
+            <li>
+              <strong>JavaScript:</strong> Interaktivitet och hamburgermeny
+            </li>
+            <li>
+              <strong>Responsive Design:</strong> Media queries för olika
+              skärmstorlekar
+            </li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>Databas</h2>
+          <p>
+            <strong>PostgreSQL</strong> används som relationsdatabas för att
+            lagra kursinformation. Databasen är hostad på Render.com och
+            innehåller en tabell med följande struktur:
+          </p>
+          <div class="database-info">
+            <h4>Tabell: courses</h4>
+            <ul>
+              <li><code>id</code> - Automatisk primärnyckel (SERIAL)</li>
+              <li><code>name</code> - Kursnamn (VARCHAR(64))</li>
+              <li><code>code</code> - Kurskod (VARCHAR(64))</li>
+              <li><code>progression</code> - Kursprogression (VARCHAR(64))</li>
+              <li><code>syllabus</code> - Länk till kursplan (VARCHAR(255))</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2>Projektets Slutsatser</h2>
+
+          <h3>Vad jag har lärt mig</h3>
+          <ul class="learning-list">
+            <li>
+              <strong>PostgreSQL:</strong> Grunderna i relationsdatabaser och
+              SQL-frågor
+            </li>
+            <li>
+              <strong>Node.js:</strong> Server-side JavaScript och Express.js
+              framework
+            </li>
+            <li>
+              <strong>Databasintegration:</strong> Hur man ansluter och arbetar
+              med PostgreSQL från Node.js
+            </li>
+            <li>
+              <strong>pgAdmin4:</strong> Grafiskt gränssnitt för
+              databashantering
+            </li>
+            <li>
+              <strong>Render.com:</strong> Deployment av både applikation och
+              databas
+            </li>
+            <li>
+              <strong>CRUD-operationer:</strong> Create, Read, Update,
+              Delete-funktionalitet
+            </li>
+          </ul>
+
+          <h3>Utmaningar och Lösningar</h3>
+          <ul class="challenges-list">
+            <li>
+              <strong>Databasanslutning:</strong> Lärde mig att ansluta till
+              databasen och hantera känslig information som lösenord på ett
+              säkert sätt
+            </li>
+            <li>
+              <strong>Formulärhantering:</strong> Validering och felhantering på
+              serversidan
+            </li>
+            <li>
+              <strong>CSS-konflikter:</strong> Löste bland annat problem med
+              z-index och positionering
+            </li>
+            <li>
+              <strong>Deployment:</strong> Konfigurerade Render.com för både
+              applikation och databas
+            </li>
+          </ul>
+
+          <h3>Framtida Förbättringar</h3>
+          <ul class="improvements-list">
+            <li>Implementera användarautentisering</li>
+            <li>Lägg till möjlighet att redigera befintliga kurser</li>
+            <li>Sök- och filtreringsfunktioner</li>
+            <li>Kategorisering av kurser</li>
+            <li>Bildladdning för kurser</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
     <footer><%- include("footer") %></footer>
   </body>
 </html>

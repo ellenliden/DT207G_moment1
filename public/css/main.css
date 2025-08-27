@@ -14,6 +14,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+p {
+  font-size: 1.2rem;
+}
 
 .container {
   max-width: 1200px;
@@ -159,11 +162,14 @@ main h2 {
   padding: 0;
   margin: 0;
 }
+.form-container label {
+  font-size: 1.2rem;
+}
 
 .course-list li {
   background: white;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.8rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
@@ -312,6 +318,33 @@ footer {
   font-weight: 400;
 }
 
+/* About */
+.container-about {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-about h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.container-about h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+.container-about h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
 /* Responsiv design */
 @media (max-width: 768px) {
   .main-header {
@@ -439,5 +472,110 @@ footer {
   .course-list li {
     padding: 0.8rem;
     font-size: 0.9rem;
+  }
+}
+
+/* About Page Styles */
+.container-about {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-section {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: #067594;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.about-section h3 {
+  color: #333;
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.about-section p {
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.feature-list,
+.tech-list,
+.learning-list,
+.challenges-list,
+.improvements-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.feature-list li,
+.tech-list li,
+.learning-list li,
+.challenges-list li,
+.improvements-list li {
+  background: #f8f9fa;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.database-info {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.database-info h4 {
+  color: #067594;
+  margin-bottom: 1rem;
+}
+
+.database-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.database-info li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.database-info code {
+  background: #067594;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
+/* Responsive design för about-sidan */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-section h3 {
+    font-size: 1.3rem;
   }
 }
